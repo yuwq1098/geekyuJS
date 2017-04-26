@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>geekyu原生js测试</title>
+</head>
+<body>
+    
+    <div id="geek1">喻文强id</div>
+    <div class="geek1">喻文强class</div>
+    <div class="qp">喻文强3</div>
+    <div class="qp">喻文强4</div>
+    <ul class="oList">
+    	<li>我是例子1</li>
+    	<li>我是例子2</li>
+    	<li>我是例子3</li>
+    	<li>我是例子4</li>
+    	<li>我是例子5</li>
+    	<li>我是例子6</li>
+    </ul>
+    <div style="height: 1200px; width: 180px; background: #f42;"></div>
+    <a id="scrollTop" style="color:#f83">返回首页</a>
+
+	<script type="text/javascript" src="geekyu.js"></script>
+	<script type="text/javascript">
+		// 出口选择器引擎定义
+        // var $$ = DomYu;
+      
+        // 出口选择器引擎定义
+		var $$ = window.DomYu;
+        console.log($$("#geek1").text());
+
+        var arryu = new Array({ oppo:"李小龙", poco: "张山峰" })
+        console.log(arryu);
+        console.log($$.isArray(arryu));
+
+        $$("#scrollTop").on("click",function(){
+        	// $$(this).scrollTop();
+        	$$("body").scrollTo(0,0);
+        })
+        console.log($$("#scrollTop").getPos('top'));
+        console.log($$.unique(arryu));
+        $$.ajax({
+        	url:'http://wthrcdn.etouch.cn/weather_mini?city=南昌',
+        	dataType: "json",
+        	success:function(res){
+	            console.log(res);
+	        }
+        })
+        
+        $$(".oList li").on("click",function(){
+        	console.dir($$(this).index());
+        })
+
+        
+
+	</script>
+    
+
+</body>
+</html>
